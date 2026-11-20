@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pasos Studio | Zapatos para Bailarines</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="contenedor nav-bar">
+      <a href="#" class="marca">PASOS STUDIO</a>
+      <nav>
+        <ul class="nav-enlaces">
+          <li><a href="#carrusel">Destacados</a></li>
+          <li><a href="#catalogo">Modelos</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <!-- CARRUSEL DE DESTACADOS -->
+    <section id="carrusel" class="seccion-carrusel" aria-label="Carrusel de calzado para baile">
+      <div class="carrusel" id="carrusel-box">
+        <div class="carrusel-pista" id="carrusel-pista">
+          <article class="slide slide-1">
+            <div class="slide-texto">
+              <span class="etiqueta-slide">Salón y Tango</span>
+              <h1>Giros firmes con suela de gamuza</h1>
+              <p>
+                Zapatos de pista con suela deslizable, plantilla acolchada y sujeción estable para giros limpios y cambios de peso precisos.
+              </p>
+              <a href="#catalogo" class="btn-carrusel-accion">Ver modelos de salón</a>
+            </div>
+            <img
+              class="slide-img"
+              src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=80"
+              alt="Zapatos de tacón para baile de salón y tango"
+            />
+          </article>
+
+          <article class="slide slide-2">
+            <div class="slide-texto">
+              <span class="etiqueta-slide">Media Punta y Contemporáneo</span>
+              <h1>Flexibilidad total en cada empeine</h1>
+              <p>
+                Diseños livianos de lona y cuero suave que acompañan la articulación del pie sin limitar el salto ni el estiramiento.
+              </p>
+              <a href="#catalogo" class="btn-carrusel-accion">Ver calzado flexible</a>
+            </div>
+            <img
+              class="slide-img"
+              src="https://images.unsplash.com/photo-1518834107812-67b0b7c58434?auto=format&fit=crop&w=800&q=80"
+              alt="Zapatillas de ballet y media punta para danza"
+            />
+          </article>
+
+          <article class="slide slide-3">
+            <div class="slide-texto">
+              <span class="etiqueta-slide">Jazz, Salsa y Urbano</span>
+              <h1>Amortiguación para ensayos largos</h1>
+              <p>
+                Entresuelas con absorción de impacto y puntos de giro reforzados para rutinas intensas, escenarios y clases diarias.
+              </p>
+              <a href="#catalogo" class="btn-carrusel-accion">Explorar catálogo</a>
+            </div>
+            <img
+              class="slide-img"
+              src="https://images.unsplash.com/photo-1508700929628-666bc8bd84ea?auto=format&fit=crop&w=800&q=80"
+              alt="Bailarina entrenando en estudio de danza"
+            />
+          </article>
+        </div>
+
+        <button type="button" class="flecha prev" id="btn-prev" aria-label="Slide anterior">&#8249;</button>
+        <button type="button" class="flecha next" id="btn-next" aria-label="Slide siguiente">&#8250;</button>
+      </div>
+
+      <div class="indicadores" id="indicadores">
+        <button type="button" class="punto activo" data-index="0" aria-label="Ir a slide 1"></button>
+        <button type="button" class="punto" data-index="1" aria-label="Ir a slide 2"></button>
+        <button type="button" class="punto" data-index="2" aria-label="Ir a slide 3"></button>
+      </div>
+    </section>
+
+    <!-- CATÁLOGO FILTRABLE (CON 4 IMÁGENES) -->
+    <section id="catalogo" class="catalogo">
+      <div class="catalogo-encabezado">
+        <h2>Catálogo por disciplina</h2>
+        <div class="filtros">
+          <button type="button" class="filtro-btn activo" data-filtro="todos">Todos</button>
+          <button type="button" class="filtro-btn" data-filtro="salon">Salón / Tango</button>
+          <button type="button" class="filtro-btn" data-filtro="danza">Media Punta</button>
+          <button type="button" class="filtro-btn" data-filtro="urbano">Jazz / Urbano</button>
+        </div>
+      </div>
+
+      <div class="grilla-zapatos" id="grilla-zapatos">
+        <article class="tarjeta-zapato" data-estilo="salon">
+          <img
+            class="zapato-img"
+            src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=600&q=80"
+            alt="Milonga Clásico Negro con taco de 6 cm"
+          />
+          <div class="tarjeta-contenido">
+            <span class="suela-tag">Suela de gamuza · Taco 6 cm</span>
+            <h3>Milonga Clásico Negro</h3>
+            <p>Cuero vacuno suave con tira cruzada ajustable para tango de pista y práctica.</p>
+          </div>
+          <div class="pie-tarjeta">
+            <span class="precio">$84.000</span>
+            <button type="button" class="btn-elegir" data-modelo="Milonga Clásico Negro ($84.000)">Seleccionar</button>
+          </div>
+        </article>
+
+        <article class="tarjeta-zapato" data-estilo="danza">
+          <img
+            class="zapato-img"
+            src="https://images.unsplash.com/photo-1518834107812-67b0b7c58434?auto=format&fit=crop&w=600&q=80"
+            alt="Zapatillas Plié Flex Media Punta"
+          />
+          <div class="tarjeta-contenido">
+            <span class="suela-tag">Suela partida · Lona elástica</span>
+            <h3>Plié Flex Media Punta</h3>
+            <p>Ajuste anatómico al arco del pie con elásticos cosidos para danza clásica y contemporánea.</p>
+          </div>
+          <div class="pie-tarjeta">
+            <span class="precio">$52.000</span>
+            <button type="button" class="btn-elegir" data-modelo="Plié Flex Media Punta ($52.000)">Seleccionar</button>
+          </div>
+        </article>
+
+        <article class="tarjeta-zapato" data-estilo="urbano">
+          <img
+            class="zapato-img"
+            src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80"
+            alt="Zapatilla deportiva ligera Ritmo Jazz y Salsa"
+          />
+          <div class="tarjeta-contenido">
+            <span class="suela-tag">Punto de giro · Plantilla EVA</span>
+            <h3>Ritmo Jazz &amp; Salsa</h3>
+            <p>Botín bajo liviano con amortiguación en talón y metatarso para coreografías dinámicas.</p>
+          </div>
+          <div class="pie-tarjeta">
+            <span class="precio">$76.500</span>
+            <button type="button" class="btn-elegir" data-modelo="Ritmo Jazz &amp; Salsa ($76.500)">Seleccionar</button>
+          </div>
+        </article>
+
+        <article class="tarjeta-zapato" data-estilo="salon">
+          <img
+            class="zapato-img"
+            src="https://images.unsplash.com/photo-1515347619252-60a4bf4fff4f?auto=format&fit=crop&w=600&q=80"
+            alt="Zapato de baile Salón Bajo Confort"
+          />
+          <div class="tarjeta-contenido">
+            <span class="suela-tag">Suela deslizable · Taco 4,5 cm</span>
+            <h3>Salón Bajo Confort</h3>
+            <p>Mayor estabilidad y base cómoda ideal para ensayos prolongados o primeros pasos en salón.</p>
+          </div>
+          <div class="pie-tarjeta">
+            <span class="precio">$79.000</span>
+            <button type="button" class="btn-elegir" data-modelo="Salón Bajo Confort ($79.000)">Seleccionar</button>
+          </div>
+        </article>
+      </div>
+
+      <p id="aviso-seleccion" class="aviso-seleccion" aria-live="polite">
+        Tocá "Seleccionar" en cualquier modelo para marcar tu par de práctica.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="contenedor">
+      <p>Pasos Studio · Calzado técnico para bailarines</p>
+    </div>
+  </footer>
+
+  <script>
+    const pista = document.getElementById("carrusel-pista");
+    const totalSlides = document.querySelectorAll(".slide").length;
+    const puntos = document.querySelectorAll(".punto");
+    const carruselBox = document.getElementById("carrusel-box");
+    let indiceActual = 0;
+
+    function irASlide(nuevoIndice) {
+      indiceActual = (nuevoIndice + totalSlides) % totalSlides;
+      pista.style.transform = `translateX(-${indiceActual * 100}%)`;
+      puntos.forEach((punto, i) => {
+        punto.classList.toggle("activo", i === indiceActual);
+      });
+    }
+
+    document.getElementById("btn-next").addEventListener("click", () => {
+      irASlide(indiceActual + 1);
+    });
+
+    document.getElementById("btn-prev").addEventListener("click", () => {
+      irASlide(indiceActual - 1);
+    });
+
+    puntos.forEach((punto) => {
+      punto.addEventListener("click", () => {
+        irASlide(Number(punto.dataset.index));
+      });
+    });
+
+    let autoplay = setInterval(() => irASlide(indiceActual + 1), 4500);
+
+    carruselBox.addEventListener("mouseenter", () => clearInterval(autoplay));
+    carruselBox.addEventListener("mouseleave", () => {
+      autoplay = setInterval(() => irASlide(indiceActual + 1), 4500);
+    });
+
+    const botonesFiltro = document.querySelectorAll(".filtro-btn");
+    const tarjetasZapato = document.querySelectorAll(".tarjeta-zapato");
+
+    botonesFiltro.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        botonesFiltro.forEach((b) => b.classList.remove("activo"));
+        btn.classList.add("activo");
+        const filtro = btn.dataset.filtro;
+
+        tarjetasZapato.forEach((tarjeta) => {
+          const coincide = filtro === "todos" || tarjeta.dataset.estilo === filtro;
+          tarjeta.style.display = coincide ? "flex" : "none";
+        });
+      });
+    });
+
+    const avisoSeleccion = document.getElementById("aviso-seleccion");
+    document.querySelectorAll(".btn-elegir").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        avisoSeleccion.textContent = `Modelo seleccionado: ${btn.dataset.modelo}. Listo para consultar talle y disponibilidad.`;
+      });
+    });
+  </script>
+</body>
+</html>

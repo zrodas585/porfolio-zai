@@ -1,0 +1,175 @@
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | Zaira Rodas</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar" id="navbar">
+    <div class="contenedor nav-flex">
+      <a href="#hero" class="logo">&lt;Portfolio /&gt;</a>
+      <nav aria-label="Navegación principal">
+        <ul class="nav-links">
+          <li><a href="#hero">Inicio</a></li>
+          <li><a href="#sobre-mi">Sobre mí</a></li>
+          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#habilidades">Habilidades</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="inspiracion.html">¿En qué me inspiré?</a></li>
+        </ul>
+      </nav>
+      <button type="button" id="btn-tema" class="btn-tema">Modo oscuro</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1. HERO / PRESENTACIÓN -->
+    <section id="hero" class="seccion hero">
+      <div class="contenedor">
+        <p class="etiqueta">6°2 · Desarrollo de Aplicaciones Web Dinámicas</p>
+        <h1>Zaira Rodas</h1>
+        <p class="rol">Estudiante de Programación</p>
+        <p class="frase-corta">
+          Desarrollo aplicaciones web dinámicas.
+        </p>
+        <div class="acciones-hero">
+          <a href="#proyectos" class="btn principal">Ver proyectos</a>
+          <a href="#contacto" class="btn secundario">Contactarme</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. SOBRE MÍ -->
+    <section id="sobre-mi" class="seccion">
+      <div class="contenedor">
+        <h2>Sobre mí</h2>
+        <p>
+          Soy estudiante de Tecnicatura en Programación en el curso 6°2. Me interesa el desarrollo web dinámico,
+          la lógica de programación, la manipulación del DOM con JavaScript y la construcción de sitios claros
+          y adaptables a cualquier dispositivo.
+        </p>
+      </div>
+    </section>
+
+    <!-- 3. PROYECTOS -->
+    <section id="proyectos" class="seccion">
+      <div class="contenedor">
+        <h2>Proyectos</h2>
+        <div class="proyectos-grid">
+          <article class="proyecto-card revelar">
+            <div class="proyecto-body">
+              <span class="anio">2026 · Tienda Dinámica</span>
+              <h3>Tienda Dinámica — NOVA</h3>
+              <p>
+                Tienda de indumentaria maquetada con HTML y CSS, con filtrado por categorías,
+                buscador en tiempo real, modal de cuenta y carrito lateral interactivo en JavaScript.
+              </p>
+              <div class="tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+              </div>
+              <div class="proyecto-links">
+                <a href="nova/index.html" target="_blank" rel="noopener noreferrer">Abrir página</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="proyecto-card revelar">
+            <div class="proyecto-body">
+              <span class="anio">2026 · JavaScript</span>
+              <h3>Calculadora JavaScript</h3>
+              <p>
+                Calculadora interactiva construida con manipulación del DOM y manejo de eventos en JavaScript
+                para ejecutar operaciones matemáticas con actualización inmediata en pantalla.
+              </p>
+              <div class="tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+              </div>
+              <div class="proyecto-links">
+                <a href="calculadora/index.html" target="_blank" rel="noopener noreferrer">Abrir página</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="proyecto-card revelar">
+            <div class="proyecto-body">
+              <span class="anio">2026 · Carrusel y Catálogo</span>
+              <h3>Pasos Studio — Zapatos para Bailarines</h3>
+              <p>
+                Página web con carrusel interactivo de calzado técnico para baile, indicadores de slide
+                y filtro de modelos por disciplina con JavaScript.
+              </p>
+              <div class="tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+              </div>
+              <div class="proyecto-links">
+                <a href="zapatos-danza/index.html" target="_blank" rel="noopener noreferrer">Abrir página</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. HABILIDADES -->
+    <section id="habilidades" class="seccion">
+      <div class="contenedor">
+        <h2>Habilidades y Tecnologías</h2>
+        <ul class="skills-lista">
+          <li>HTML5</li>
+          <li>CSS3</li>
+          <li>JavaScript</li>
+          <li>Git &amp; GitHub</li>
+          <li>Diseño Responsivo</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 5. CONTACTO -->
+    <section id="contacto" class="seccion">
+      <div class="contenedor">
+        <h2>Contacto</h2>
+        <p class="contacto-intro">
+          Completá el formulario para enviarme un mensaje directo por correo electrónico.
+        </p>
+
+        <form id="form-contacto" action="https://formspree.io/f/mdegdwzj" method="POST" novalidate>
+          <div class="campo">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre" />
+          </div>
+
+          <div class="campo">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="tuemail@ejemplo.com" />
+          </div>
+
+          <div class="campo">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Escribí tu mensaje (mínimo 10 caracteres)..."></textarea>
+          </div>
+
+          <p id="mensaje-error" class="error-form" role="alert" aria-live="polite"></p>
+          <button type="submit" class="btn principal">Enviar mensaje</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="contenedor footer-flex">
+      <p>Portfolio Web Personal · 6°2</p>
+      <a href="inspiracion.html">¿En qué me inspiré?</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

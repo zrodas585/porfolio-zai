@@ -1,0 +1,304 @@
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --muted: #475569;
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --border: #e2e8f0;
+  --error: #dc2626;
+}
+
+body.oscuro {
+  --bg: #0b1120;
+  --surface: #111827;
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+  --primary: #38bdf8;
+  --primary-hover: #0284c7;
+  --border: #1e293b;
+  --error: #f87171;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.contenedor {
+  width: min(1080px, 90%);
+  margin: 0 auto;
+}
+
+.seccion {
+  padding: 4rem 0;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--border);
+  transition: box-shadow 0.2s ease, background-color 0.25s ease;
+}
+
+.topbar.scrolled {
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.12);
+}
+
+.nav-flex,
+.footer-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.1rem;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  color: var(--text);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+.btn,
+.btn-tema {
+  display: inline-block;
+  padding: 0.65rem 1.15rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid var(--primary);
+  font-size: 0.95rem;
+}
+
+.btn.principal {
+  background-color: var(--primary);
+  color: #ffffff;
+}
+
+body.oscuro .btn.principal {
+  color: #0b1120;
+}
+
+.btn.principal:hover {
+  background-color: var(--primary-hover);
+}
+
+.btn.secundario,
+.btn-tema {
+  background-color: transparent;
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.btn-tema:hover {
+  border-color: var(--primary);
+}
+
+.etiqueta {
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+}
+
+.rol {
+  font-size: 1.15rem;
+  color: var(--muted);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.frase-corta {
+  max-width: 55ch;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+.acciones-hero {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.25rem;
+}
+
+#sobre-mi p,
+.contacto-intro {
+  max-width: 68ch;
+  color: var(--muted);
+}
+
+.proyectos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.proyecto-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.proyecto-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  flex: 1;
+}
+
+.anio {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.proyecto-body p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.tags {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.tags span {
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.proyecto-links {
+  margin-top: 0.5rem;
+}
+
+.skills-lista {
+  list-style: none;
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.skills-lista li {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.9rem;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+form {
+  max-width: 540px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+label {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background-color: var(--surface);
+  color: var(--text);
+  font-family: inherit;
+}
+
+.error-form {
+  color: var(--error);
+  font-size: 0.9rem;
+  font-weight: 600;
+  min-height: 1.2rem;
+}
+
+.footer {
+  border-top: 1px solid var(--border);
+  background-color: var(--surface);
+  margin-top: 2rem;
+}
+
+.lista-inspiracion,
+.lista-decisiones {
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  max-width: 75ch;
+}
+
+@media (max-width: 768px) {
+  .acciones-hero,
+  .skills-lista {
+    justify-content: center;
+  }
+}

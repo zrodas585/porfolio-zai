@@ -1,0 +1,190 @@
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVA - Tienda de Ropa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="aviso">
+        ENVÍOS GRATIS EN COMPRAS SUPERIORES A $50.000 | 3 CUOTAS SIN INTERÉS
+    </div>
+
+    <header class="encabezado">
+        <h1 class="logo" onclick="filtrarCategoria('todos')">NOVA</h1>
+
+        <nav class="menu">
+            <button onclick="filtrarCategoria('todos')">Todos</button>
+            <button onclick="filtrarCategoria('novedades')">Novedades</button>
+            <button onclick="filtrarCategoria('coleccion')">Colección</button>
+            <button onclick="filtrarCategoria('sale')">Sale</button>
+        </nav>
+
+        <div class="botones-header">
+            <button id="btn-usuario" onclick="mostrarSeccion('seccion-login')">👤 Ingresar</button>
+            <button onclick="mostrarSeccion('seccion-carrito')">🛒 Carrito (<span id="contador-carrito">0</span>)</button>
+        </div>
+    </header>
+
+    <section class="buscador">
+        <input type="text" id="input-busqueda" placeholder="Buscar prenda por nombre..." onkeyup="buscarProducto()">
+        <button onclick="limpiarBusqueda()">Limpiar</button>
+    </section>
+
+    <section class="panel" id="seccion-login" style="display:none;">
+        <h3>Iniciar Sesión</h3>
+        <input type="text" id="nombre-usuario" placeholder="Tu nombre o correo">
+        <input type="password" placeholder="Contraseña">
+        <div class="panel-acciones">
+            <button class="btn-oscuro" onclick="iniciarSesion()">Entrar</button>
+            <button onclick="ocultarSecciones()">Cerrar</button>
+        </div>
+    </section>
+
+    <section class="panel" id="seccion-carrito" style="display:none;">
+        <h3>Tu Carrito</h3>
+        <div id="contenido-carrito">
+            <p>El carrito está vacío.</p>
+        </div>
+        <p class="total-carrito">Total: $<span id="total-carrito">0</span></p>
+        <div class="panel-acciones">
+            <button class="btn-oscuro" onclick="finalizarCompra()">Finalizar Compra</button>
+            <button onclick="ocultarSecciones()">Cerrar</button>
+        </div>
+    </section>
+
+    <main class="catalogo">
+        <h2 id="titulo-seccion">TODOS LOS PRODUCTOS</h2>
+
+        <div class="grilla" id="lista-productos">
+            <article class="tarjeta" data-categoria="novedades">
+                <img src="foto1.jfif" alt="Vestido Novia">
+                <h3>Vestido Novia</h3>
+                <p class="precio">$180.000</p>
+                <button class="btn-oscuro" onclick="agregarAlCarrito('Vestido Novia', 180000)">Agregar al Carrito</button>
+            </article>
+
+            <article class="tarjeta" data-categoria="coleccion">
+                <img src="foto2.jfif" alt="Campera Denim">
+                <h3>Campera Denim</h3>
+                <p class="precio">$400.000</p>
+                <button class="btn-oscuro" onclick="agregarAlCarrito('Campera Denim', 400000)">Agregar al Carrito</button>
+            </article>
+
+            <article class="tarjeta" data-categoria="coleccion">
+                <img src="foto3.jfif" alt="Camisa Jean Duo">
+                <h3>Camisa Jean Duo</h3>
+                <p class="precio">$200.000</p>
+                <button class="btn-oscuro" onclick="agregarAlCarrito('Camisa Jean Duo', 200000)">Agregar al Carrito</button>
+            </article>
+
+            <article class="tarjeta" data-categoria="sale">
+                <img src="foto4.jfif" alt="Top Negro Night">
+                <h3>Top Negro Night</h3>
+                <p class="precio">$300.000</p>
+                <button class="btn-oscuro" onclick="agregarAlCarrito('Top Negro Night', 300000)">Agregar al Carrito</button>
+            </article>
+        </div>
+    </main>
+
+    <footer class="pie">
+        <p>&copy; 2026 NOVA Studio - Proyecto Web Dinámica 6to Año</p>
+    </footer>
+
+    <script>
+        let carrito = [];
+        let total = 0;
+
+        function filtrarCategoria(categoria) {
+            document.getElementById('titulo-seccion').innerText = categoria === 'todos' ? 'TODOS LOS PRODUCTOS' : categoria.toUpperCase();
+
+            let tarjetas = document.querySelectorAll('.tarjeta');
+            tarjetas.forEach(tarjeta => {
+                let catTarjeta = tarjeta.getAttribute('data-categoria');
+                if (categoria === 'todos' || catTarjeta === categoria) {
+                    tarjeta.style.display = 'flex';
+                } else {
+                    tarjeta.style.display = 'none';
+                }
+            });
+        }
+
+        function buscarProducto() {
+            let texto = document.getElementById('input-busqueda').value.toLowerCase();
+            let tarjetas = document.querySelectorAll('.tarjeta');
+
+            tarjetas.forEach(tarjeta => {
+                let titulo = tarjeta.querySelector('h3').innerText.toLowerCase();
+                if (titulo.includes(texto)) {
+                    tarjeta.style.display = 'flex';
+                } else {
+                    tarjeta.style.display = 'none';
+                }
+            });
+        }
+
+        function limpiarBusqueda() {
+            document.getElementById('input-busqueda').value = '';
+            buscarProducto();
+        }
+
+        function agregarAlCarrito(nombre, precio) {
+            carrito.push({ nombre: nombre, precio: precio });
+            total += precio;
+            actualizarCarrito();
+            alert("Agregaste: " + nombre);
+        }
+
+        function actualizarCarrito() {
+            document.getElementById('contador-carrito').innerText = carrito.length;
+
+            let contenedor = document.getElementById('contenido-carrito');
+            contenedor.innerHTML = '';
+
+            if (carrito.length === 0) {
+                contenedor.innerHTML = '<p>El carrito está vacío.</p>';
+            } else {
+                carrito.forEach(producto => {
+                    contenedor.innerHTML += `<p class="item-carrito"><span>${producto.nombre}</span><strong>$${producto.precio.toLocaleString('es-AR')}</strong></p>`;
+                });
+            }
+
+            document.getElementById('total-carrito').innerText = total.toLocaleString('es-AR');
+        }
+
+        function finalizarCompra() {
+            if (carrito.length === 0) {
+                alert("¡Tu carrito está vacío!");
+                return;
+            }
+            alert("¡Gracias por tu compra! Total abonado: $" + total.toLocaleString('es-AR'));
+            carrito = [];
+            total = 0;
+            actualizarCarrito();
+            ocultarSecciones();
+        }
+
+        function mostrarSeccion(idSeccion) {
+            ocultarSecciones();
+            document.getElementById(idSeccion).style.display = 'block';
+        }
+
+        function ocultarSecciones() {
+            document.getElementById('seccion-carrito').style.display = 'none';
+            document.getElementById('seccion-login').style.display = 'none';
+        }
+
+        function iniciarSesion() {
+            let usuario = document.getElementById('nombre-usuario').value;
+            if (usuario !== "") {
+                document.getElementById('btn-usuario').innerText = "👤 Hola, " + usuario;
+                ocultarSecciones();
+            } else {
+                alert("Por favor escribí un nombre.");
+            }
+        }
+    </script>
+</body>
+</html>

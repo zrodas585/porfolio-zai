@@ -1,0 +1,254 @@
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f7f7f7;
+    color: #181818;
+    line-height: 1.5;
+}
+
+/* Barra superior */
+.aviso {
+    background-color: #111;
+    color: #fff;
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 1px;
+    padding: 8px 12px;
+}
+
+/* Encabezado */
+.encabezado {
+    background-color: #fff;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 16px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.logo {
+    font-size: 24px;
+    letter-spacing: 3px;
+    cursor: pointer;
+}
+
+.menu {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.menu button {
+    background: none;
+    border: none;
+    padding: 8px 12px;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+}
+
+.menu button:hover {
+    border-bottom-color: #111;
+}
+
+.botones-header {
+    display: flex;
+    gap: 10px;
+}
+
+.botones-header button {
+    background-color: #fff;
+    border: 1px solid #111;
+    padding: 8px 14px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.botones-header button:hover {
+    background-color: #111;
+    color: #fff;
+}
+
+/* Buscador */
+.buscador {
+    max-width: 1100px;
+    margin: 24px auto 0;
+    padding: 0 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.buscador input {
+    flex: 1;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.buscador button,
+.panel button {
+    padding: 10px 16px;
+    border: 1px solid #111;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.buscador button:hover,
+.panel button:hover {
+    background-color: #eee;
+}
+
+/* Paneles de carrito y login */
+.panel {
+    max-width: 500px;
+    margin: 20px auto;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.panel h3 {
+    margin-bottom: 12px;
+}
+
+.panel input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.item-carrito {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.total-carrito {
+    margin-top: 12px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.panel-acciones {
+    display: flex;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+/* Catálogo y tarjetas */
+.catalogo {
+    max-width: 1100px;
+    margin: 30px auto 50px;
+    padding: 0 20px;
+}
+
+.catalogo h2 {
+    text-align: center;
+    margin-bottom: 24px;
+    letter-spacing: 2px;
+    font-size: 22px;
+}
+
+.grilla {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.tarjeta {
+    background-color: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 8px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tarjeta:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.09);
+}
+
+.tarjeta img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    background-color: #eee;
+}
+
+.tarjeta h3 {
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.precio {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.btn-oscuro {
+    margin-top: auto;
+    width: 100%;
+    padding: 10px;
+    background-color: #111;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-oscuro:hover {
+    background-color: #333;
+}
+
+/* Pie de página */
+.pie {
+    background-color: #111;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+}
+
+/* Celular */
+@media (max-width: 900px) {
+    .grilla {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 550px) {
+    .grilla {
+        grid-template-columns: 1fr;
+    }
+
+    .encabezado {
+        justify-content: center;
+        text-align: center;
+    }
+}
